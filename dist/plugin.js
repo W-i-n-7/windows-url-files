@@ -1,10 +1,14 @@
-exports.version = 1
+exports.version = 1.1
 exports.description = "Windows URL files (redirect on open)"
 exports.apiRequired = 1
 exports.repo = "rejetto/windows-url-files"
+exports.changelog = [
+    { "version": 1.1, "message": "Fix for WebDAV" },
+]
 
 exports.init = api => ({
     middleware: ctx => async () => { // wait for it to be processed, so that permissions and the rest is taken care of
+        if (ctx.get('user-agent').includes('MiniRedir')) return // skip WebDAV request
         if ('dl' in ctx.query) return // forced download
         const file = ctx.state.fileSource
             || ctx.fileSource // legacy
