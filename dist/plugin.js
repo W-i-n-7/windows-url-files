@@ -3,7 +3,7 @@ exports.description = "Windows URL files (redirect on open)"
 exports.apiRequired = 1
 exports.repo = "rejetto/windows-url-files"
 exports.changelog = [
-    { "version": 1.1, "message": "Fix for WebDAV" },
+    { "version": 1.1, "message": "Fix for WebDAV" }
 ]
 
 exports.init = api => ({
